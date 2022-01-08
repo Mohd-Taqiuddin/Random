@@ -1,4 +1,4 @@
-# Eventbrite (Internship Assignment)
+# Eventbrite
 ## Usage
 
 ```bash
