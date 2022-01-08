@@ -9,6 +9,12 @@ class Event(models.Model):
     event_name = models.CharField(max_length=50, default="")
     date = models.DateField()
     time = models.TimeField()
+    price = models.IntegerField(default=5)
     location = models.CharField(max_length=100)
     image = models.ImageField(upload_to="uploads/")
     is_liked = models.BooleanField(default=False)
+
+
+# class User(models.Model):
+#     email = models.CharField(max_length=50, default="")
+#     password = models.CharField(max_length=50, default="")

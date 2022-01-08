@@ -3,12 +3,12 @@
 {% block content %}
 {% endblock %}
 
-<h1 style="text-align:center; margin:20px"><b>Likes</h1>
+<h1 style="text-align:50px; margin:20px 500px"><b>Liked Events</h1>
 
 
 {% for e in events %}
 <div class="row">
-  <div class="col">
+  <div class="col-3" style="margin:auto">
     {% if e.image %}
       <img src="{{ e.image.url }}" alt="image" class="img-thumbnail">
     {% else %}
@@ -16,32 +16,24 @@
       <img src="{% static 'download.png' %}" alt="img" class="img-thumbnail"> 
     {% endif %}
   </div>
-  <div class="col">
+  <div class="col-7">
     <p>{{ e.event_name }}</p>
     <p>{{ e.date }}</p>
-    <p>{{ e.time }}</p>
+    <p>{{ e.time }}, IST</p>
+    <p>${{ e.price }}</p>
     <p>{{ e.location }}</p>
     <button class="btn" id="ht-btn" style="font-size:24px"><i class="fa fa-heart" id="like" style="color:#DCDCDC"></i></button>
   </div>
 </div>
+
+{% endfor %}
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
   $('#ht-btn').click(function() {
-    
-    if(document.getElementById("ht-btn").style.color === 'red'){
-      console.log("ifffffffffffff")
-      $('#like').css({
-        'color': '#DCDCDC'
-      });
-    }
-    else{
-      console.log("elseeeeeeeeeeeeeee")
-      $('#like').css({
-        'color': 'red'
-      });
-    }
+    $('#like').css({
+      'color': 'red'
+    });
   
 });
   </script>
-
-{% endfor %}
