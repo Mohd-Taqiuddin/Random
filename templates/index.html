@@ -1,65 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  {% block title %}<title>Eventbrite</title>{% endblock %}
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  {% load static %}
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-end ms-auto">
-        <div class="container-fluid">
-            <div style="margin:20px">
-            <a class="navbar-brand" style="color:#f05537!important; font-size:24px; font-family:Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif " href="#"><b>eventbrite</b></a>
-            </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            <ul class="justify-content-end navbar-nav me-auto mb-2 mb-lg-0">              
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-            </ul> 
-          </div>
-          <ul class="nav justify-content-end" >
-            <div class="btn-group">
-                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 Host an event
-                </button>
-                <div class="dropdown-menu dropdown-menu-right">
-                  <button class="dropdown-item" type="button">Action</button>
-                  <button class="dropdown-item" type="button">Another action</button>
-                  <button class="dropdown-item" type="button">Something else here</button>
-                </div>
-              </div>
-            <li class="nav-item">
-              <a class="nav-link active" style="color:#39364f" aria-current="page" href="#">Browse Events</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="color:#39364f" href="#">Help</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="color:#39364f" href="#">Sign In</a>
-            </li>
-          </ul>
+{% include 'navbar.html' %}
+
+{% block content %}
+{% comment %} <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-end ms-auto">
+    <div class="container-fluid">
+        <div style="margin:20px">
+        <a class="navbar-brand" style="color:#f05537!important; font-size:24px; font-family:Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif " href={% url 'index' %}><b>eventbrite</b></a>
         </div>
-      </nav>
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-</body>
-</html>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> 
+      </div>
+      <ul class="nav justify-content-end" >
+        <div class="btn-group">
+          <a class="nav-link active" style="color:#39364f" aria-current="page" href={% url 'add_event' %}>Browse Events</a>
+          </div>
+        <li class="nav-item">
+        <a class="nav-link active" style="color:#39364f" aria-current="page" href={% url 'add_event' %}>Host an Event</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color:#39364f" href="#">Help</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color:#39364f" href="#">Sign In</a>
+        </li>
+      </ul>
+    </div>
+  </nav> {% endcomment %}
+{% endblock %}
