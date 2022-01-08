@@ -1,34 +1,42 @@
 {% include 'navbar.html' %}
 
 {% block content %}
-{% comment %} <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-end ms-auto">
-    <div class="container-fluid">
-        <div style="margin:20px">
-        <a class="navbar-brand" style="color:#f05537!important; font-size:24px; font-family:Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif " href={% url 'index' %}><b>eventbrite</b></a>
-        </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form> 
-      </div>
-      <ul class="nav justify-content-end" >
-        <div class="btn-group">
-          <a class="nav-link active" style="color:#39364f" aria-current="page" href={% url 'add_event' %}>Browse Events</a>
-          </div>
-        <li class="nav-item">
-        <a class="nav-link active" style="color:#39364f" aria-current="page" href={% url 'add_event' %}>Host an Event</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" style="color:#39364f" href="#">Help</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" style="color:#39364f" href="#">Sign In</a>
-        </li>
-      </ul>
-    </div>
-  </nav> {% endcomment %}
 {% endblock %}
+
+<h1 style="text-align:center; margin:20px"><b>Likes</h1>
+
+
+{% for e in events %}
+<div class="row">
+  <div class="col">
+    {% if e.image %}
+      <img src="{{ e.image.url }}" alt="image" class="img-thumbnail">
+    {% else %}
+      {% load static %}
+      <img src="{% static 'download.png' %}" alt="img" class="img-thumbnail"> 
+    {% endif %}
+  </div>
+  <div class="col">
+    <p>{{ e.event_name }}</p>
+    <p>{{ e.date }}</p>
+    <p>{{ e.time }}</p>
+    <p>{{ e.location }}</p>
+    <button class="btn" style="font-size:24px"><i class="fa fa-heart" style="color:#DCDCDC"></i></button>
+  </div>
+</div>
+
+{% comment %} <div>
+  {% if e.image %}
+    <img src="{{ e.image.url }}" alt="image" class="img-thumbnail">
+  {% else %}
+    {% load static %}
+    <img src="{% static 'download.png' %}" alt="img" class="img-thumbnail">
+  {% endif %}
+  
+  <p>{{ e.event_name }}</p>
+  <p>{{ e.date }}</p>
+  <p>{{ e.time }}</p>
+  <p>{{ e.location }}</p>
+</div> {% endcomment %}
+
+{% endfor %}
